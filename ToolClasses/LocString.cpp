@@ -1,6 +1,7 @@
+#include "pch.h"
 #include "LocString.h"
 
-LocString::LocString(String path)
+LocString::LocString(string path)
 {
 
 }
