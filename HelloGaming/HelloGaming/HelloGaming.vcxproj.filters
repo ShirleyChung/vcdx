@@ -41,6 +41,7 @@
     <ClCompile Include="..\..\ToolClasses\LocString.cpp">
       <Filter>ToolClasses</Filter>
     </ClCompile>
+    <ClCompile Include="GraphRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -53,6 +54,7 @@
     <ClInclude Include="..\..\ToolClasses\LocString.h">
       <Filter>ToolClasses</Filter>
     </ClInclude>
+    <ClInclude Include="GraphRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
