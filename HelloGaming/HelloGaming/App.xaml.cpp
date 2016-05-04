@@ -45,7 +45,7 @@ void App::OnLaunched(LaunchActivatedEventArgs^ args)
 
 	if (args->PreviousExecutionState == ApplicationExecutionState::Terminated)
 	{
-		m_directXPage->LoadInternalState(ApplicationData::Current->LocalSettings->Values);
+//		m_directXPage->LoadInternalState(ApplicationData::Current->LocalSettings->Values);
 	}
 
 	// 將頁面放在目前視窗中，並確定它是作用中。
@@ -63,5 +63,5 @@ void App::OnSuspending(Object^ sender, SuspendingEventArgs^ args)
 	(void) sender; // 未使用的參數。
 	(void) args; // 未使用的參數。
 
-	m_directXPage->SaveInternalState(ApplicationData::Current->LocalSettings->Values);
+//	m_directXPage->SaveInternalState(ApplicationData::Current->LocalSettings->Values);
 }

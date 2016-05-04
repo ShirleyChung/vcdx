@@ -6,7 +6,7 @@
 #pragma once
 
 #include "DirectXPage.g.h"
-#include "SimpleTextRenderer.h"
+#include "GraphRenderer.h"
 #include "BasicTimer.h"
 
 namespace HelloGaming
@@ -20,12 +20,6 @@ namespace HelloGaming
 	public:
 		DirectXPage();
 
-		void OnPreviousColorPressed(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
-		void OnNextColorPressed(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
-
-		void SaveInternalState(Windows::Foundation::Collections::IPropertySet^ state);
-		void LoadInternalState(Windows::Foundation::Collections::IPropertySet^ state);
-
 	private:
 		void OnPointerMoved(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ args);
 		void OnPointerReleased(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ args);
@@ -37,7 +31,7 @@ namespace HelloGaming
 
 		Windows::Foundation::EventRegistrationToken m_eventToken;
 
-		SimpleTextRenderer^ m_renderer;
+		GraphRenderer^ m_renderer;
 		bool m_renderNeeded;
 
 		Windows::Foundation::Point m_lastPoint;

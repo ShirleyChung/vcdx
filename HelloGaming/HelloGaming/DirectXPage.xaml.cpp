@@ -28,7 +28,7 @@ DirectXPage::DirectXPage() :
 {
 	InitializeComponent();
 
-	m_renderer = ref new SimpleTextRenderer();
+	m_renderer = ref new GraphRenderer();
 
 	m_renderer->Initialize(
 		Window::Current->CoreWindow,
@@ -65,7 +65,7 @@ void DirectXPage::OnPointerMoved(Object^ sender, PointerRoutedEventArgs^ args)
 				currentPoint->Position.X - m_lastPoint.X,
 				currentPoint->Position.Y - m_lastPoint.Y
 				);
-			m_renderer->UpdateTextPosition(delta);
+			m_renderer->PointerMoved(delta);
 			m_renderNeeded = true;
 		}
 		m_lastPoint = currentPoint->Position;
@@ -116,26 +116,4 @@ void DirectXPage::OnRendering(Object^ sender, Object^ args)
 		m_renderer->Present();
 		m_renderNeeded = false;
 	}
-}
-
-void DirectXPage::OnPreviousColorPressed(Object^ sender, RoutedEventArgs^ args)
-{
-	m_renderer->BackgroundColorPrevious();
-	m_renderNeeded = true;
-}
-
-void DirectXPage::OnNextColorPressed(Object^ sender, RoutedEventArgs^ args)
-{
-	m_renderer->BackgroundColorNext();
-	m_renderNeeded = true;
-}
-
-void DirectXPage::SaveInternalState(IPropertySet^ state)
-{
-	m_renderer->SaveInternalState(state);
-}
-
-void DirectXPage::LoadInternalState(IPropertySet^ state)
-{
-	m_renderer->LoadInternalState(state);
 }

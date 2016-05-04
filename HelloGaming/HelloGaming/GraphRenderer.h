@@ -17,15 +17,9 @@ public:
 	// 用於更新時間相依物件的方法。
 	void Update(float timeTotal, float timeDelta);
 
-	// 用於根據輸入事件變更文字位置的方法。
-	void UpdateTextPosition(Windows::Foundation::Point deltaTextPosition);
+	// 滑鼠移上去的事件
+	void PointerMoved(Windows::Foundation::Point point);
 
 private:
-	Microsoft::WRL::ComPtr<ID2D1SolidColorBrush> m_blackBrush;
-	Microsoft::WRL::ComPtr<IDWriteTextFormat> m_textFormat;
-	Microsoft::WRL::ComPtr<IDWriteTextLayout> m_textLayout;
-	DWRITE_TEXT_METRICS m_textMetrics;
-	Windows::Foundation::Point m_textPosition;
-	bool m_renderNeeded;
-	int m_backgroundColorIndex;
+	Windows::Foundation::Point m_pan;
 };
