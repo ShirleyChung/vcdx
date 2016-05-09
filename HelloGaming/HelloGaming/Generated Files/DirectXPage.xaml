@@ -9,25 +9,5 @@
     <SwapChainBackgroundPanel x:ConnectionId='1' x:Name="SwapChainPanel"                                                                  >
         <TextBlock x:Name="SimpleTextBlock" HorizontalAlignment="Center" FontSize="42" Height="72" Text="Hello, XAML!" Margin="0,0,0,50"/>
     </SwapChainBackgroundPanel>
-    <Page.BottomAppBar>
-        <AppBar Padding="10,0,10,0">
-            <Grid>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='3' Style="{StaticResource AppBarButtonStyle}" 
-                            Tag="Previous" 
-                            AutomationProperties.AutomationId="PreviousAppBarButton" Content="&#xE112;"  
-                            AutomationProperties.Name="Previous Color" 
-                                                          />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='2' Style="{StaticResource AppBarButtonStyle}" 
-                            Tag="Next" 
-                            AutomationProperties.AutomationId="NextAppBarButton" Content="&#xE111;"  
-                            AutomationProperties.Name="Next Color" 
-                                                      />
-                </StackPanel>
-            </Grid>
-        </AppBar>
-    </Page.BottomAppBar>
 </Page>
 

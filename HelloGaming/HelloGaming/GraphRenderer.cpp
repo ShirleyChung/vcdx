@@ -22,6 +22,12 @@ static const ColorF BackgroundColors[] =
 
 GraphRenderer::GraphRenderer()
 {
+	m_solidBackground = new SolidBackground(D2D1::ColorF::Bisque);
+}
+
+GraphRenderer::~GraphRenderer()
+{
+	delete m_solidBackground;
 }
 
 void GraphRenderer::CreateDeviceIndependentResources()
@@ -47,6 +53,19 @@ void GraphRenderer::Update(float timeTotal, float timeDelta)
 
 void GraphRenderer::Render()
 {
+	m_d2dContext->BeginDraw();
+
+	Matrix3x2F translation = Matrix3x2F::Translation(m_pan.X, m_pan.Y);
+
+	m_d2dContext->SetTransform(translation * m_orientationTransform2D);
+
+	m_solidBackground->Render(m_d2dContext);
+
+	HRESULT hr = m_d2dContext->EndDraw();
+	if (hr != D2DERR_RECREATE_TARGET)
+	{
+		DX::ThrowIfFailed(hr);
+	}
 }
 
 void GraphRenderer::PointerMoved(Windows::Foundation::Point point)

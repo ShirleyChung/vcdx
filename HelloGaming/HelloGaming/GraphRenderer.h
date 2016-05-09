@@ -2,11 +2,14 @@
 
 #include "DirectXBase.h"
 
+#include "SolidBackground.h"
+
 // 這個類別會轉譯有彩色背景的簡單文字。
 ref class GraphRenderer sealed : public DirectXBase
 {
 public:
 	GraphRenderer();
+	virtual ~GraphRenderer();
 
 	// DirectXBase 方法。
 	virtual void CreateDeviceIndependentResources() override;
@@ -22,4 +25,5 @@ public:
 
 private:
 	Windows::Foundation::Point m_pan;
+	SolidBackground	*m_solidBackground;
 };
