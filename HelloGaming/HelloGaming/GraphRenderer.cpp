@@ -22,7 +22,7 @@ static const ColorF BackgroundColors[] =
 
 GraphRenderer::GraphRenderer()
 {
-	m_solidBackground = new SolidBackground(D2D1::ColorF::Bisque);
+	m_solidBackground = new SolidBackground(D2D1::ColorF::Green);
 }
 
 GraphRenderer::~GraphRenderer()

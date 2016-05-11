@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\ToolClasses\LocString.h" />
+    <ClInclude Include="GradianBackground.h" />
     <ClInclude Include="GraphRenderer.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h">
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ToolClasses\LocString.cpp" />
+    <ClCompile Include="GradianBackground.cpp" />
     <ClCompile Include="GraphRenderer.cpp" />
     <ClCompile Include="SimpleTextRenderer.cpp" />
     <ClCompile Include="DirectXBase.cpp" />
