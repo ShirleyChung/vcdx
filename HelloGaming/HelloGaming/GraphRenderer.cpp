@@ -24,13 +24,24 @@ GraphRenderer::GraphRenderer()
 {
 	m_solidBackground = new SolidBackground(D2D1::ColorF::Green);
 
-	D2D1_COLOR_F colors[] = { D2D1::ColorF(ColorF::PaleGoldenrod),
-		D2D1::ColorF(ColorF::PaleTurquoise), 
-		D2D1::ColorF(0.7f, 0.7f, 1.0f)  };
+//	D2D1_COLOR_F colors[] = { D2D1::ColorF(ColorF::PaleGoldenrod), D2D1::ColorF(ColorF::PaleTurquoise), D2D1::ColorF(0.7f, 0.7f, 1.0f)  };
+//	float stops[] = { 0.0f, 0.5f, 1.0f };
 
-	float stops[] = { 0.0f, 0.5f, 1.0f };
+	const int count = 40;
 
-	m_graBackground = new GradianBackground(colors, stops, 3);
+	D2D1_COLOR_F *colors = new D2D1_COLOR_F[count];
+	float *stops = new float[count];
+
+	for(int i=0; i<count; ++i)
+	{
+		colors[i] = D2D1::ColorF( 0.75f + (float)(rand()%192)/192.0f, 0.75f + (float)(rand()%192)/192.0f, 0.75f + (float)(rand()%192)/192.0f);
+		stops[i] = (float)i/count;
+	}
+
+	m_graBackground = new GradianBackground(colors, stops, count);
+
+	delete[] colors;
+	delete[] stops;
 }
 
 GraphRenderer::~GraphRenderer()
