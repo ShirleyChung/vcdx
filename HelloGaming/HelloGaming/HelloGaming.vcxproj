@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\ToolClasses\LocString.h" />
+    <ClInclude Include="BitmapBackground.h" />
     <ClInclude Include="GradianBackground.h" />
     <ClInclude Include="GraphRenderer.h" />
     <ClInclude Include="pch.h" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ToolClasses\LocString.cpp" />
+    <ClCompile Include="BitmapBackground.cpp" />
     <ClCompile Include="GradianBackground.cpp" />
     <ClCompile Include="GraphRenderer.cpp" />
     <ClCompile Include="SimpleTextRenderer.cpp" />
