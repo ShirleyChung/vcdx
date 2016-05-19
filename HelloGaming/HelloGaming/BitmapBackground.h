@@ -12,6 +12,8 @@ public:
 
 	void CreateWindowSizeDependentResources(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context);
 
+	void Render(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context);
+
 private:
 	ID2D1Bitmap *m_pBmp;
 	D2D1_RECT_F m_rect;
