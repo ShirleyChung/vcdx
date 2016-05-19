@@ -119,6 +119,7 @@
     <ClInclude Include="BitmapBackground.h" />
     <ClInclude Include="GradianBackground.h" />
     <ClInclude Include="GraphRenderer.h" />
+    <ClInclude Include="GraphVariable.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h">
       <DependentUpon>App.xaml</DependentUpon>
@@ -126,6 +127,7 @@
     <ClInclude Include="DirectXPage.xaml.h">
       <DependentUpon>DirectXPage.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="ScatterPlot.h" />
     <ClInclude Include="SolidBackground.h" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +148,7 @@
     <None Include="HelloGaming_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\..\OneDrive\圖片\儲存的圖片\sq255911.jpg" />
     <Image Include="Assets\Logo.png" />
     <Image Include="Assets\SmallLogo.png" />
     <Image Include="Assets\StoreLogo.png" />
@@ -162,6 +165,8 @@
     <ClCompile Include="BitmapBackground.cpp" />
     <ClCompile Include="GradianBackground.cpp" />
     <ClCompile Include="GraphRenderer.cpp" />
+    <ClCompile Include="GraphVariable.cpp" />
+    <ClCompile Include="ScatterPlot.cpp" />
     <ClCompile Include="SimpleTextRenderer.cpp" />
     <ClCompile Include="DirectXBase.cpp" />
     <ClCompile Include="App.xaml.cpp">

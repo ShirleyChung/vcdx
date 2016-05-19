@@ -42,12 +42,15 @@ GraphRenderer::GraphRenderer()
 
 	delete[] colors;
 	delete[] stops;
+
+	m_bmpBackground = new BitmapBackground();
 }
 
 GraphRenderer::~GraphRenderer()
 {
 	delete m_solidBackground;
 	delete m_graBackground;
+	delete m_bmpBackground;
 }
 
 void GraphRenderer::CreateDeviceIndependentResources()
@@ -58,6 +61,8 @@ void GraphRenderer::CreateDeviceIndependentResources()
 void GraphRenderer::CreateDeviceResources()
 {
 	DirectXBase::CreateDeviceResources();
+
+	m_bmpBackground->CreateDeviceDependentResources( m_d2dContext, m_wicFactory.Get(), L"sq255911.jpg" );
 }
 
 void GraphRenderer::CreateWindowSizeDependentResources()
@@ -65,6 +70,7 @@ void GraphRenderer::CreateWindowSizeDependentResources()
 	DirectXBase::CreateWindowSizeDependentResources();
 
 	m_graBackground->CreateWindowSizeDependentResources(m_d2dContext);
+	m_bmpBackground->CreateWindowSizeDependentResources(m_d2dContext);
 }
 
 void GraphRenderer::Update(float timeTotal, float timeDelta)
@@ -78,7 +84,8 @@ void GraphRenderer::Render()
 	m_d2dContext->SetTransform(m_orientationTransform2D);
 
 //	m_solidBackground->Render(m_d2dContext);
-	m_graBackground->Render(m_d2dContext);
+//	m_graBackground->Render(m_d2dContext);
+	m_bmpBackground->Render(m_d2dContext);
 
 	Matrix3x2F translation = Matrix3x2F::Translation(m_pan.X, m_pan.Y);
 	m_d2dContext->SetTransform(translation* m_orientationTransform2D);

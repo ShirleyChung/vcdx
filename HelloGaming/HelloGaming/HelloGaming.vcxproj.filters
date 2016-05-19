@@ -45,6 +45,8 @@
     <ClCompile Include="SolidBackground.cpp" />
     <ClCompile Include="GradianBackground.cpp" />
     <ClCompile Include="BitmapBackground.cpp" />
+    <ClCompile Include="GraphVariable.cpp" />
+    <ClCompile Include="ScatterPlot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -61,6 +63,8 @@
     <ClInclude Include="SolidBackground.h" />
     <ClInclude Include="GradianBackground.h" />
     <ClInclude Include="BitmapBackground.h" />
+    <ClInclude Include="GraphVariable.h" />
+    <ClInclude Include="ScatterPlot.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
@@ -70,5 +74,8 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="DirectXPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\OneDrive\圖片\儲存的圖片\sq255911.jpg" />
   </ItemGroup>
 </Project>
