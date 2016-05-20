@@ -14,7 +14,7 @@ public:
 	float GetMinY(){ return m_miny; }
 
 	GraphVariable(float* x, float* y, int count);
-	~GraphVariable(void);
+	virtual ~GraphVariable(void);
 
 	virtual void CreateDeviceDependentResources(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context) = 0;
 	virtual void Render(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context) = 0;
