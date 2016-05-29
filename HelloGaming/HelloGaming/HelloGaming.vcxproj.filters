@@ -47,6 +47,7 @@
     <ClCompile Include="BitmapBackground.cpp" />
     <ClCompile Include="GraphVariable.cpp" />
     <ClCompile Include="ScatterPlot.cpp" />
+    <ClCompile Include="DXPieChart.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -65,6 +66,7 @@
     <ClInclude Include="BitmapBackground.h" />
     <ClInclude Include="GraphVariable.h" />
     <ClInclude Include="ScatterPlot.h" />
+    <ClInclude Include="DXPieChart.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
@@ -76,6 +78,6 @@
     <Page Include="DirectXPage.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\..\OneDrive\圖片\儲存的圖片\sq255911.jpg" />
+    <Image Include="..\..\..\..\..\OneDrive\圖片\相機相簿\Screenshot0.jpg" />
   </ItemGroup>
 </Project>
