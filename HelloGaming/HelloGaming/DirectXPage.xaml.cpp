@@ -29,6 +29,7 @@ DirectXPage::DirectXPage() :
 	InitializeComponent();
 
 	m_renderer = ref new GraphRenderer();
+//	m_renderer = ref new SimpleTextRenderer();
 
 	m_renderer->Initialize(
 		Window::Current->CoreWindow,

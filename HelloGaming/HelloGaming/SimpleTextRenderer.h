@@ -28,6 +28,7 @@ public:
 	void SaveInternalState(Windows::Foundation::Collections::IPropertySet^ state);
 	void LoadInternalState(Windows::Foundation::Collections::IPropertySet^ state);
 
+	void PointerMoved(Windows::Foundation::Point point);
 private:
 	Microsoft::WRL::ComPtr<ID2D1SolidColorBrush> m_blackBrush;
 	Microsoft::WRL::ComPtr<IDWriteTextFormat> m_textFormat;
@@ -36,4 +37,6 @@ private:
 	Windows::Foundation::Point m_textPosition;
 	bool m_renderNeeded;
 	int m_backgroundColorIndex;
+
+	Windows::Foundation::Point m_pan;
 };

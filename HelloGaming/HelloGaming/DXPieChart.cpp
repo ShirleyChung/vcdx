@@ -28,14 +28,14 @@ DXPieChart::DXPieChart()
 	m_pieColor.push_back(RGB(255,0,0));
 	m_pieColor.push_back(RGB(0,255,0));
 	m_pieColor.push_back(RGB(0,0,255));
-/*
+
  	m_pizza["1011"] = (Pizza("1011", 1, RGB(255,1,10)));
- 	m_pizza["1012"] = (Pizza("1012", 1.5, RGB(255,255,1)));
- 	m_pizza["1013"] = (Pizza("1013", 0.5, RGB(255,1,1)));
+ 	m_pizza["1012"] = (Pizza("1012", 1.5f, RGB(255,255,1)));
+ 	m_pizza["1013"] = (Pizza("1013", 0.5f, RGB(255,1,1)));
  	m_pizza["2011"] = (Pizza("2011", 3, RGB(50,1,255)));
- 	m_pizza["3011"] = (Pizza("3011", 2.1, RGB(255,50,1)));
+ 	m_pizza["3011"] = (Pizza("3011", 2.1f, RGB(255,50,1)));
  	m_pizza["4011"] = (Pizza("4011", 2, RGB(50,1,1)));
-*/
+
  }
 
 DXPieChart::~DXPieChart()
@@ -241,4 +241,6 @@ void Pizza::DrawLabel(DC& dc)
 	//dc.TextOut(p->x, p->y, label);
 	//label.Format("%.2f%%", ratio*100);
 	//dc.TextOut(p->x, p->y + 16, label);
+
+//	dc->DrawText(name, name.size(),)
 }

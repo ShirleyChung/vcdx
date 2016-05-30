@@ -11,6 +11,8 @@ class ScatterPlot :	public GraphVariable
 	ID2D1SolidColorBrush* m_brush;
 	NodeShape m_nodeShape;
 
+	float m_min_x, m_max_x, m_min_y, m_max_y;
+
 public:
 	ScatterPlot(float *x, float *y, float nodeSize, D2D1::ColorF nodeColor, NodeShape nodeShape, int count);
 	~ScatterPlot(void);

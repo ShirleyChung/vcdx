@@ -50,11 +50,11 @@ GraphRenderer::GraphRenderer()
 
 	for(int i=0; i<nodeCount; ++i)
 	{
-		x[i] = (float)(rand()%2000);
-		y[i] = (float)(rand()%1000);
+		x[i] = (float)(rand()%200);
+		y[i] = (float)(rand()%200);
 	}
 
-	m_graphVar = new ScatterPlot(x, y, 10.0f, D2D1::ColorF::Chocolate, NodeShape::Circle, nodeCount);
+	m_graphVar = new ScatterPlot(x, y, 2.0f, D2D1::ColorF::Chocolate, NodeShape::Circle, nodeCount);
 
 	delete[] x;
 	delete[] y;
@@ -77,7 +77,7 @@ void GraphRenderer::CreateDeviceResources()
 {
 	DirectXBase::CreateDeviceResources();
 
-	m_bmpBackground->CreateDeviceDependentResources( m_d2dContext, m_wicFactory.Get(), L"sq255911.jpg" );
+	m_bmpBackground->CreateDeviceDependentResources( m_d2dContext, m_wicFactory.Get(), L"Screenshot0.jpg" );
 	m_graphVar->CreateDeviceDependentResources(m_d2dContext);
 }
 
@@ -88,8 +88,8 @@ void GraphRenderer::CreateWindowSizeDependentResources()
 	m_graBackground->CreateWindowSizeDependentResources(m_d2dContext);
 	m_bmpBackground->CreateWindowSizeDependentResources(m_d2dContext);
 
-	m_pan.X = - m_graphVar->GetMinX();
-	m_pan.Y = - m_d2dContext->GetSize().height - m_graphVar->GetMinY();
+	m_pan.X = 20.0f - m_graphVar->GetMinX();
+	m_pan.Y =  m_d2dContext->GetSize().height/2 - m_graphVar->GetMinY();
 }
 
 void GraphRenderer::Update(float timeTotal, float timeDelta)
@@ -106,8 +106,10 @@ void GraphRenderer::Render()
 	m_graBackground->Render(m_d2dContext);
 //	m_bmpBackground->Render(m_d2dContext);
 
+	Matrix3x2F scale = Matrix3x2F::Scale(1.0f, -1.0f, D2D1::Point2F(0.0f, 0.0f));
 	Matrix3x2F translation = Matrix3x2F::Translation(m_pan.X, m_pan.Y);
-	m_d2dContext->SetTransform(translation* m_orientationTransform2D);
+
+	m_d2dContext->SetTransform(scale * translation* m_orientationTransform2D);
 
 	m_graphVar->Render(m_d2dContext);
 

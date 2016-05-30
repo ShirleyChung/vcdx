@@ -110,7 +110,9 @@ void SimpleTextRenderer::Render()
 	// 這個後乘運算步驟必須用於針對交換鏈結的
 	// 目標點陣圖執行的任何繪製呼叫。若是其他目標的繪製呼叫，
 	// 則不應該套用這個轉換。
-	m_d2dContext->SetTransform(translation * m_orientationTransform2D);
+	Matrix3x2F move = Matrix3x2F::Translation(m_pan.X, m_pan.Y);
+
+	m_d2dContext->SetTransform(translation * m_orientationTransform2D*move);
 
 	m_d2dContext->DrawTextLayout(
 		Point2F(0.0f, 0.0f),
@@ -175,4 +177,10 @@ void SimpleTextRenderer::LoadInternalState(IPropertySet^ state)
 		m_backgroundColorIndex = safe_cast<IPropertyValue^>(state->Lookup("m_backgroundColorIndex"))->GetInt32();
 		m_textPosition = safe_cast<IPropertyValue^>(state->Lookup("m_textPosition"))->GetPoint();
 	}
+}
+
+void SimpleTextRenderer::PointerMoved(Windows::Foundation::Point point)
+{
+	m_pan.X +=point.X;
+	m_pan.Y +=point.Y;
 }

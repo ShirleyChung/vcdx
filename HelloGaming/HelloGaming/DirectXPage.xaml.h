@@ -7,6 +7,7 @@
 
 #include "DirectXPage.g.h"
 #include "GraphRenderer.h"
+#include "SimpleTextRenderer.h"
 #include "BasicTimer.h"
 
 namespace HelloGaming
@@ -32,6 +33,7 @@ namespace HelloGaming
 		Windows::Foundation::EventRegistrationToken m_eventToken;
 
 		GraphRenderer^ m_renderer;
+//		SimpleTextRenderer^ m_renderer;
 		bool m_renderNeeded;
 
 		Windows::Foundation::Point m_lastPoint;
