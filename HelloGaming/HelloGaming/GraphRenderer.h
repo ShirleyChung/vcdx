@@ -6,6 +6,7 @@
 #include "GradianBackground.h"
 #include "BitmapBackground.h"
 #include "ScatterPlot.h"
+#include "Axes.h"
 
 // 這個類別會轉譯有彩色背景的簡單文字。
 ref class GraphRenderer sealed : public DirectXBase
@@ -31,6 +32,7 @@ private:
 	SolidBackground	*m_solidBackground;
 	GradianBackground *m_graBackground;
 	BitmapBackground *m_bmpBackground;
+	Axes* m_pAxes;
 
 	GraphVariable *m_graphVar;
 };

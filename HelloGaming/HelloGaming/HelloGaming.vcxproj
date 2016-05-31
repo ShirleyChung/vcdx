@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\ToolClasses\LocString.h" />
+    <ClInclude Include="Axes.h" />
     <ClInclude Include="BitmapBackground.h" />
     <ClInclude Include="DXPieChart.h" />
     <ClInclude Include="GradianBackground.h" />
@@ -150,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\OneDrive\圖片\相機相簿\Screenshot0.jpg" />
+    <Image Include="..\..\..\..\..\Pictures\space.jpg" />
     <Image Include="Assets\Logo.png" />
     <Image Include="Assets\SmallLogo.png" />
     <Image Include="Assets\StoreLogo.png" />
@@ -163,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ToolClasses\LocString.cpp" />
+    <ClCompile Include="Axes.cpp" />
     <ClCompile Include="BitmapBackground.cpp" />
     <ClCompile Include="DXPieChart.cpp" />
     <ClCompile Include="GradianBackground.cpp" />

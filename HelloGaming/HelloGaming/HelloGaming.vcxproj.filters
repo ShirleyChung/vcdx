@@ -48,6 +48,7 @@
     <ClCompile Include="GraphVariable.cpp" />
     <ClCompile Include="ScatterPlot.cpp" />
     <ClCompile Include="DXPieChart.cpp" />
+    <ClCompile Include="Axes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -67,6 +68,7 @@
     <ClInclude Include="GraphVariable.h" />
     <ClInclude Include="ScatterPlot.h" />
     <ClInclude Include="DXPieChart.h" />
+    <ClInclude Include="Axes.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
@@ -79,5 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\OneDrive\圖片\相機相簿\Screenshot0.jpg" />
+    <Image Include="..\..\..\..\..\Pictures\space.jpg" />
   </ItemGroup>
 </Project>
