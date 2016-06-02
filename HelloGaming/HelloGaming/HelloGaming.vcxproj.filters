@@ -49,6 +49,7 @@
     <ClCompile Include="ScatterPlot.cpp" />
     <ClCompile Include="DXPieChart.cpp" />
     <ClCompile Include="Axes.cpp" />
+    <ClCompile Include="LineChart.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -69,6 +70,7 @@
     <ClInclude Include="ScatterPlot.h" />
     <ClInclude Include="DXPieChart.h" />
     <ClInclude Include="Axes.h" />
+    <ClInclude Include="LineChart.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
