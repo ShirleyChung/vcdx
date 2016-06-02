@@ -33,6 +33,8 @@ void ::HelloGaming::DirectXPage::Connect(int connectionId, Platform::Object^ tar
     switch (connectionId)
     {
     case 1:
+        (safe_cast<::Windows::UI::Xaml::UIElement^>(target))->PointerWheelChanged +=
+            ref new ::Windows::UI::Xaml::Input::PointerEventHandler(this, (void (::HelloGaming::DirectXPage::*)(Platform::Object^, Windows::UI::Xaml::Input::PointerRoutedEventArgs^))&DirectXPage::OnPointerWheelChanged);
         (safe_cast<::Windows::UI::Xaml::UIElement^>(target))->PointerMoved +=
             ref new ::Windows::UI::Xaml::Input::PointerEventHandler(this, (void (::HelloGaming::DirectXPage::*)(Platform::Object^, Windows::UI::Xaml::Input::PointerRoutedEventArgs^))&DirectXPage::OnPointerMoved);
         (safe_cast<::Windows::UI::Xaml::UIElement^>(target))->PointerReleased +=

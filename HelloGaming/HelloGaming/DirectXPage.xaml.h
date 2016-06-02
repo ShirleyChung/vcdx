@@ -40,5 +40,6 @@ namespace HelloGaming
 		bool m_lastPointValid;
 		
 		BasicTimer^ m_timer;
+		void OnPointerWheelChanged(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e);
 	};
 }

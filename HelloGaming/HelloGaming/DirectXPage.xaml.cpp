@@ -109,7 +109,7 @@ void DirectXPage::OnDisplayContentsInvalidated(Object^ sender)
 
 void DirectXPage::OnRendering(Object^ sender, Object^ args)
 {
-	if (m_renderNeeded)
+//	if (m_renderNeeded)
 	{
 		m_timer->Update();
 		m_renderer->Update(m_timer->Total, m_timer->Delta);
@@ -117,4 +117,9 @@ void DirectXPage::OnRendering(Object^ sender, Object^ args)
 		m_renderer->Present();
 		m_renderNeeded = false;
 	}
+}
+
+void HelloGaming::DirectXPage::OnPointerWheelChanged(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e)
+{
+	
 }

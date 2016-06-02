@@ -35,4 +35,10 @@ private:
 	Axes* m_pAxes;
 
 	GraphVariable *m_graphVar;
+
+	// 顯示FPS
+	Microsoft::WRL::ComPtr<IDWriteTextFormat> m_textFormat;
+	Microsoft::WRL::ComPtr<ID2D1SolidColorBrush> m_textBrush;
+
+	float m_timeDelta, m_timeTotal;
 };

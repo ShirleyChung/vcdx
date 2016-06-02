@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "GraphRenderer.h"
+#include <string>
 
 using namespace D2D1;
 using namespace DirectX;
@@ -74,6 +75,10 @@ GraphRenderer::~GraphRenderer()
 void GraphRenderer::CreateDeviceIndependentResources()
 {
 	DirectXBase::CreateDeviceIndependentResources();
+
+	DX::ThrowIfFailed( 
+		m_dwriteFactory->CreateTextFormat(L"新細明體", nullptr, DWRITE_FONT_WEIGHT_NORMAL, DWRITE_FONT_STYLE_NORMAL,DWRITE_FONT_STRETCH_NORMAL, 12.0f, L"zh-TW", &m_textFormat)
+		);
 }
 
 void GraphRenderer::CreateDeviceResources()
@@ -82,11 +87,16 @@ void GraphRenderer::CreateDeviceResources()
 
 	m_bmpBackground->CreateDeviceDependentResources( m_d2dContext, m_wicFactory.Get(), L"space.jpg" );
 	m_graphVar->CreateDeviceDependentResources(m_d2dContext);
+	m_pAxes->CreateDeviceDependentResources(m_d2dContext);
 }
 
 void GraphRenderer::CreateWindowSizeDependentResources()
 {
 	DirectXBase::CreateWindowSizeDependentResources();
+
+	DX::ThrowIfFailed(
+		m_d2dContext->CreateSolidColorBrush(ColorF(ColorF::White), &m_textBrush)
+		);
 
 	m_graBackground->CreateWindowSizeDependentResources(m_d2dContext);
 	m_bmpBackground->CreateWindowSizeDependentResources(m_d2dContext);
@@ -97,6 +107,12 @@ void GraphRenderer::CreateWindowSizeDependentResources()
 
 void GraphRenderer::Update(float timeTotal, float timeDelta)
 {
+	static int c = -1;
+	if (c++ % 15 == 0) // 16frames更新一次
+	{
+		m_timeTotal = timeTotal;
+		m_timeDelta = timeDelta;
+	}
 }
 
 void GraphRenderer::Render()
@@ -111,10 +127,18 @@ void GraphRenderer::Render()
 //	m_graBackground->Render(m_d2dContext);
 	m_bmpBackground->Render(m_d2dContext);
 
+	/* FPS */
+	std::wstring s = std::wstring(L"Total Time:") + std::to_wstring(m_timeTotal);
+	s += L"s, FPS:" + std::to_wstring( (int)(0.5f + 1.0f/m_timeDelta) ) + L" frames/sec";
+	m_d2dContext->DrawText( s.c_str(), s.length(), m_textFormat.Get(), D2D1::RectF(0,0,600,32), m_textBrush.Get());
+
 	/* 圖表位置及方位 */
 	Matrix3x2F scale = Matrix3x2F::Scale(1.0f, -1.0f, D2D1::Point2F(0.0f, 0.0f));
 	Matrix3x2F translation = Matrix3x2F::Translation(m_pan.X, m_pan.Y);
 	m_d2dContext->SetTransform(scale * translation* m_orientationTransform2D);
+
+	/* 坐標軸 */
+	m_pAxes->Render(m_d2dContext, m_pan.X, m_pan.Y, 1.0f, -1.0f);
 
 	/* 圖表 */
 	m_graphVar->Render(m_d2dContext);
