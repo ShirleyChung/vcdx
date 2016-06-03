@@ -23,7 +23,7 @@ static const ColorF BackgroundColors[] =
 
 GraphRenderer::GraphRenderer()
 {
-	m_solidBackground = new SolidBackground(D2D1::ColorF::Green);
+	m_solidBackground = std::make_shared<SolidBackground>(D2D1::ColorF::Green);
 
 //	D2D1_COLOR_F colors[] = { D2D1::ColorF(ColorF::PaleGoldenrod), D2D1::ColorF(ColorF::PaleTurquoise), D2D1::ColorF(0.7f, 0.7f, 1.0f)  };
 //	float stops[] = { 0.0f, 0.5f, 1.0f };
@@ -39,12 +39,12 @@ GraphRenderer::GraphRenderer()
 		stops[i] = (float)i/count;
 	}
 
-	m_graBackground = new GradianBackground(colors, stops, count);
+	m_graBackground = std::make_shared<GradianBackground>(colors, stops, count);
 
 	delete[] colors;
 	delete[] stops;
 
-	m_bmpBackground = new BitmapBackground();
+	m_bmpBackground = std::make_shared<BitmapBackground>();
 
 	float *x = new float[nodeCount];
 	float *y = new float[nodeCount];
@@ -55,21 +55,24 @@ GraphRenderer::GraphRenderer()
 		y[i] = (float)(rand()%200);
 	}
 
-	m_graphVar = new ScatterPlot(x, y, 2.0f, D2D1::ColorF::BlueViolet, NodeShape::Circle, nodeCount);
+	m_graphVar = std::make_shared<ScatterPlot>(x, y, 2.0f, D2D1::ColorF::BlueViolet, NodeShape::Circle, nodeCount);
 
 	delete[] x;
 	delete[] y;
 
-	m_pAxes = new Axes(D2D1::ColorF::Black, 1.0, 1.0);
+	m_pAxes = std::make_shared<Axes>(D2D1::ColorF::Black, 1.0f, 1.0f);
+	m_msgWin = std::make_shared<TextMessageWin>();
+
+	m_msgWin->AddMessage(L"Hello! I'm here!");
 }
 
 GraphRenderer::~GraphRenderer()
 {
-	delete m_solidBackground;
-	delete m_graBackground;
-	delete m_bmpBackground;
-	delete m_graphVar;
-	delete m_pAxes;
+//	delete m_solidBackground;
+//	delete m_graBackground;
+//	delete m_bmpBackground;
+//	delete m_graphVar;
+//	delete m_pAxes;
 }
 
 void GraphRenderer::CreateDeviceIndependentResources()
@@ -79,6 +82,8 @@ void GraphRenderer::CreateDeviceIndependentResources()
 	DX::ThrowIfFailed( 
 		m_dwriteFactory->CreateTextFormat(L"新細明體", nullptr, DWRITE_FONT_WEIGHT_NORMAL, DWRITE_FONT_STYLE_NORMAL,DWRITE_FONT_STRETCH_NORMAL, 12.0f, L"zh-TW", &m_textFormat)
 		);
+
+	m_msgWin->CreateDeviceIndependentResources(m_dwriteFactory);
 }
 
 void GraphRenderer::CreateDeviceResources()
@@ -97,6 +102,8 @@ void GraphRenderer::CreateWindowSizeDependentResources()
 	DX::ThrowIfFailed(
 		m_d2dContext->CreateSolidColorBrush(ColorF(ColorF::White), &m_textBrush)
 		);
+
+	m_msgWin->CreateWindowSizeDependentResources(m_d2dContext);
 
 	m_graBackground->CreateWindowSizeDependentResources(m_d2dContext);
 	m_bmpBackground->CreateWindowSizeDependentResources(m_d2dContext);
@@ -119,6 +126,11 @@ void GraphRenderer::Render()
 {
 	m_d2dContext->BeginDraw();
 
+	Matrix3x2F reset = Matrix3x2F::Identity();
+	Matrix3x2F translation = Matrix3x2F::Translation(m_pan.X, m_pan.Y);
+	Matrix3x2F mouse_pan = Matrix3x2F::Translation(m_mousePan.X, m_mousePan.Y);
+	Matrix3x2F scale = Matrix3x2F::Scale(1.0f, -1.0f, D2D1::Point2F(0.0f, 0.0f));
+
 	/* 行動裝置螢幕方向 */
 	m_d2dContext->SetTransform(m_orientationTransform2D);
 
@@ -132,9 +144,10 @@ void GraphRenderer::Render()
 	s += L"s, FPS:" + std::to_wstring( (int)(0.5f + 1.0f/m_timeDelta) ) + L" frames/sec";
 	m_d2dContext->DrawText( s.c_str(), s.length(), m_textFormat.Get(), D2D1::RectF(0,0,600,32), m_textBrush.Get());
 
-	/* 圖表位置及方位 */
-	Matrix3x2F scale = Matrix3x2F::Scale(1.0f, -1.0f, D2D1::Point2F(0.0f, 0.0f));
-	Matrix3x2F translation = Matrix3x2F::Translation(m_pan.X, m_pan.Y);
+	/* messages */
+	m_d2dContext->SetTransform(mouse_pan* m_orientationTransform2D);
+	m_msgWin->Render(m_d2dContext);
+
 	m_d2dContext->SetTransform(scale * translation* m_orientationTransform2D);
 
 	/* 坐標軸 */
@@ -152,6 +165,6 @@ void GraphRenderer::Render()
 
 void GraphRenderer::PointerMoved(Windows::Foundation::Point point)
 {
-	m_pan.X +=point.X;
-	m_pan.Y +=point.Y;
+	m_mousePan.X +=point.X;
+	m_mousePan.Y +=point.Y;
 }

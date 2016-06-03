@@ -7,6 +7,7 @@
 #include "BitmapBackground.h"
 #include "ScatterPlot.h"
 #include "Axes.h"
+#include "TextMessageWin.h"
 
 // 這個類別會轉譯有彩色背景的簡單文字。
 ref class GraphRenderer sealed : public DirectXBase
@@ -28,13 +29,14 @@ public:
 	void PointerMoved(Windows::Foundation::Point point);
 
 private:
-	Windows::Foundation::Point m_pan;
-	SolidBackground	*m_solidBackground;
-	GradianBackground *m_graBackground;
-	BitmapBackground *m_bmpBackground;
-	Axes* m_pAxes;
+	Windows::Foundation::Point m_pan, m_mousePan;
+	std::shared_ptr<SolidBackground> m_solidBackground;
+	std::shared_ptr<GradianBackground> m_graBackground;
+	std::shared_ptr<BitmapBackground> m_bmpBackground;
+	std::shared_ptr<TextMessageWin> m_msgWin;
+	std::shared_ptr<Axes> m_pAxes;
 
-	GraphVariable *m_graphVar;
+	std::shared_ptr<GraphVariable> m_graphVar;
 
 	// 顯示FPS
 	Microsoft::WRL::ComPtr<IDWriteTextFormat> m_textFormat;

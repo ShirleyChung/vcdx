@@ -33,8 +33,8 @@ void ScatterPlot::CreateDeviceDependentResources(Microsoft::WRL::ComPtr<ID2D1Dev
 
 void ScatterPlot::Render(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context)
 {
-	context->DrawLine(D2D1::Point2F(m_min_x, m_min_y), D2D1::Point2F(m_max_x, m_min_y), m_brush); // x axis
-	context->DrawLine(D2D1::Point2F(m_min_x, m_min_y), D2D1::Point2F(m_min_x, m_max_y), m_brush); // y axis
+//	context->DrawLine(D2D1::Point2F(m_min_x, m_min_y), D2D1::Point2F(m_max_x, m_min_y), m_brush); // x axis
+//	context->DrawLine(D2D1::Point2F(m_min_x, m_min_y), D2D1::Point2F(m_min_x, m_max_y), m_brush); // y axis
 
 	switch(m_nodeShape){
 	case NodeShape::Circle:
