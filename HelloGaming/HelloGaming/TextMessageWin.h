@@ -1,9 +1,9 @@
 #pragma once
 
-#include "DirectXBase.h"
+#include "Pane.h"
 #include <list>
 
-class TextMessageWin
+class TextMessageWin: public Pane
 {
 	std::wstring m_fontFace, m_locale;
 	float m_fontSize;
@@ -14,6 +14,7 @@ class TextMessageWin
 	Microsoft::WRL::ComPtr<ID2D1SolidColorBrush> m_textBrush;
 
 	std::list<std::wstring> m_messages;
+
 public:
 	TextMessageWin(void);
 	~TextMessageWin(void);
@@ -21,7 +22,7 @@ public:
 	void CreateDeviceIndependentResources(Microsoft::WRL::ComPtr<IDWriteFactory1> dwFactory);
 	void CreateWindowSizeDependentResources(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context);
 
-	void Render(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context);
+	virtual void Render(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context) override;
 
 	void AddMessage(const std::wstring& s){ m_messages.push_back(s); }
 };

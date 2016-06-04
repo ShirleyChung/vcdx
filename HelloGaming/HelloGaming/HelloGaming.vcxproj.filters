@@ -51,6 +51,7 @@
     <ClCompile Include="Axes.cpp" />
     <ClCompile Include="LineChart.cpp" />
     <ClCompile Include="TextMessageWin.cpp" />
+    <ClCompile Include="Pane.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -73,6 +74,7 @@
     <ClInclude Include="Axes.h" />
     <ClInclude Include="LineChart.h" />
     <ClInclude Include="TextMessageWin.h" />
+    <ClInclude Include="Pane.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />

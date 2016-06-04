@@ -93,6 +93,8 @@ void GraphRenderer::CreateDeviceResources()
 	m_bmpBackground->CreateDeviceDependentResources( m_d2dContext, m_wicFactory.Get(), L"space.jpg" );
 	m_graphVar->CreateDeviceDependentResources(m_d2dContext);
 	m_pAxes->CreateDeviceDependentResources(m_d2dContext);
+
+	m_msgWin->CreateDeviceDependentResources(m_d2dContext, m_wicFactory.Get(), L"");
 }
 
 void GraphRenderer::CreateWindowSizeDependentResources()

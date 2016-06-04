@@ -9,6 +9,7 @@ TextMessageWin::TextMessageWin(void)
 	,m_lineRect(D2D1::RectF(0,30,600,32))
 	,m_textColor(D2D1::ColorF::White)
 {
+	SetRect(m_lineRect);
 }
 
 
@@ -30,5 +31,7 @@ void TextMessageWin::CreateWindowSizeDependentResources(Microsoft::WRL::ComPtr<I
 
 void TextMessageWin::Render(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context)
 {
+	Pane::Render(context);
+
 	context->DrawText( m_messages.back().c_str(), m_messages.back().length(), m_textFormat.Get(), m_lineRect, m_textBrush.Get());
 }

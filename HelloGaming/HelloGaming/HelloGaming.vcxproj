@@ -123,6 +123,7 @@
     <ClInclude Include="GraphRenderer.h" />
     <ClInclude Include="GraphVariable.h" />
     <ClInclude Include="LineChart.h" />
+    <ClInclude Include="Pane.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h">
       <DependentUpon>App.xaml</DependentUpon>
@@ -174,6 +175,7 @@
     <ClCompile Include="GraphRenderer.cpp" />
     <ClCompile Include="GraphVariable.cpp" />
     <ClCompile Include="LineChart.cpp" />
+    <ClCompile Include="Pane.cpp" />
     <ClCompile Include="ScatterPlot.cpp" />
     <ClCompile Include="SimpleTextRenderer.cpp" />
     <ClCompile Include="DirectXBase.cpp" />
