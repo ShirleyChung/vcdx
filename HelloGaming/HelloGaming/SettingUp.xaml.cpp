@@ -36,3 +36,10 @@ void SettingUp::OnNavigatedTo(NavigationEventArgs^ e)
 {
 	(void) e;	// 未使用的參數
 }
+
+
+void HelloGaming::SettingUp::btnClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	Window::Current->Content = m_parent;
+	Window::Current->Activate();
+}

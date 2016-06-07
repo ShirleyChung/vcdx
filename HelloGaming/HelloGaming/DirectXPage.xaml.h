@@ -41,5 +41,6 @@ namespace HelloGaming
 		
 		BasicTimer^ m_timer;
 		void OnPointerWheelChanged(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e);
+		void btnSetting(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }

@@ -14,6 +14,7 @@ namespace Windows {
             namespace Controls {
                 ref class SwapChainBackgroundPanel;
                 ref class TextBlock;
+                ref class Button;
             }
         }
     }
@@ -33,6 +34,7 @@ namespace HelloGaming
     
         private: ::Windows::UI::Xaml::Controls::SwapChainBackgroundPanel^ SwapChainPanel;
         private: ::Windows::UI::Xaml::Controls::TextBlock^ SimpleTextBlock;
+        private: ::Windows::UI::Xaml::Controls::Button^ btnSettingUp;
     };
 }
 

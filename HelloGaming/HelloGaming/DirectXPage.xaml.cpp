@@ -5,6 +5,7 @@
 
 #include "pch.h"
 #include "DirectXPage.xaml.h"
+#include "SettingUp.xaml.h"
 
 using namespace HelloGaming;
 
@@ -122,4 +123,11 @@ void DirectXPage::OnRendering(Object^ sender, Object^ args)
 void HelloGaming::DirectXPage::OnPointerWheelChanged(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e)
 {
 	
+}
+
+
+void HelloGaming::DirectXPage::btnSetting(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	Window::Current->Content = ref new SettingUp(this);
+	Window::Current->Activate();
 }

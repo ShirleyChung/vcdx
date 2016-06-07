@@ -9,4 +9,9 @@
     <SwapChainBackgroundPanel x:Name="SwapChainPanel" PointerWheelChanged="OnPointerWheelChanged" PointerMoved="OnPointerMoved" PointerReleased="OnPointerReleased">
         <TextBlock x:Name="SimpleTextBlock" HorizontalAlignment="Center" FontSize="42" Height="72" Text="Hello!!" Margin="0,0,0,50" Foreground="#FF4F2424"/>
     </SwapChainBackgroundPanel>
+    <Page.BottomAppBar>
+        <AppBar Padding="10, 0, 10, 0">
+            <Button Name="btnSettingUp" Content="Setting" FontSize="24" HorizontalAlignment="Center" Width="240" Background="Bisque" Click="btnSetting" />
+        </AppBar>
+    </Page.BottomAppBar>
 </Page>

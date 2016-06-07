@@ -26,6 +26,8 @@ void ::HelloGaming::DirectXPage::InitializeComponent()
     SwapChainPanel = safe_cast<::Windows::UI::Xaml::Controls::SwapChainBackgroundPanel^>(static_cast<Windows::UI::Xaml::IFrameworkElement^>(this)->FindName(L"SwapChainPanel"));
     // Get the TextBlock named 'SimpleTextBlock'
     SimpleTextBlock = safe_cast<::Windows::UI::Xaml::Controls::TextBlock^>(static_cast<Windows::UI::Xaml::IFrameworkElement^>(this)->FindName(L"SimpleTextBlock"));
+    // Get the Button named 'btnSettingUp'
+    btnSettingUp = safe_cast<::Windows::UI::Xaml::Controls::Button^>(static_cast<Windows::UI::Xaml::IFrameworkElement^>(this)->FindName(L"btnSettingUp"));
 }
 
 void ::HelloGaming::DirectXPage::Connect(int connectionId, Platform::Object^ target)
@@ -39,6 +41,10 @@ void ::HelloGaming::DirectXPage::Connect(int connectionId, Platform::Object^ tar
             ref new ::Windows::UI::Xaml::Input::PointerEventHandler(this, (void (::HelloGaming::DirectXPage::*)(Platform::Object^, Windows::UI::Xaml::Input::PointerRoutedEventArgs^))&DirectXPage::OnPointerMoved);
         (safe_cast<::Windows::UI::Xaml::UIElement^>(target))->PointerReleased +=
             ref new ::Windows::UI::Xaml::Input::PointerEventHandler(this, (void (::HelloGaming::DirectXPage::*)(Platform::Object^, Windows::UI::Xaml::Input::PointerRoutedEventArgs^))&DirectXPage::OnPointerReleased);
+        break;
+    case 2:
+        (safe_cast<::Windows::UI::Xaml::Controls::Primitives::ButtonBase^>(target))->Click +=
+            ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::HelloGaming::DirectXPage::*)(Platform::Object^, Windows::UI::Xaml::RoutedEventArgs^))&DirectXPage::btnSetting);
         break;
     }
     (void)connectionId; // Unused parameter

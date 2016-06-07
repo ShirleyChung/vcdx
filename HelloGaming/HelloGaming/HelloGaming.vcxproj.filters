@@ -52,6 +52,7 @@
     <ClCompile Include="LineChart.cpp" />
     <ClCompile Include="TextMessageWin.cpp" />
     <ClCompile Include="Pane.cpp" />
+    <ClCompile Include="SettingUp.xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -75,6 +76,7 @@
     <ClInclude Include="LineChart.h" />
     <ClInclude Include="TextMessageWin.h" />
     <ClInclude Include="Pane.h" />
+    <ClInclude Include="SettingUp.xaml.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
@@ -88,6 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\OneDrive\圖片\相機相簿\Screenshot0.jpg" />
-    <Image Include="..\..\..\..\..\Pictures\space.jpg" />
+    <Image Include="..\..\..\..\..\Desktop\space.jpg" />
   </ItemGroup>
 </Project>

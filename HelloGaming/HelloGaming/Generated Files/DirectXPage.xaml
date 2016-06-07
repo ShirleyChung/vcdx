@@ -9,5 +9,10 @@
     <SwapChainBackgroundPanel x:ConnectionId='1' x:Name="SwapChainPanel"                                                                                                              >
         <TextBlock x:Name="SimpleTextBlock" HorizontalAlignment="Center" FontSize="42" Height="72" Text="Hello!!" Margin="0,0,0,50" Foreground="#FF4F2424"/>
     </SwapChainBackgroundPanel>
+    <Page.BottomAppBar>
+        <AppBar Padding="10, 0, 10, 0">
+            <Button x:ConnectionId='2' Name="btnSettingUp" Content="Setting" FontSize="24" HorizontalAlignment="Center" Width="240" Background="Bisque"                    />
+        </AppBar>
+    </Page.BottomAppBar>
 </Page>
 
