@@ -1,6 +1,11 @@
 #include "pch.h"
 #include "LineChart.h"
+#include <algorithm>
 
+bool compare_points(D2D1_POINT_2F a, D2D1_POINT_2F b)
+{
+	return a.x < b.x;
+}
 
 LineChart::LineChart(float* x, float* y, int count, D2D1::ColorF cr, float thickness)
 	:GraphVariable(x,y,count), m_color(cr), m_lineThickness(thickness)
@@ -15,17 +20,28 @@ LineChart::~LineChart(void)
 
 void LineChart::sortData()
 {
+	std::vector<D2D1_POINT_2F> sortedNodes(m_points, m_points + m_nodeCount);
+	std::stable_sort(sortedNodes.begin(), sortedNodes.end(), compare_points);
 
+	int c = 0;
+	for(std::vector<D2D1_POINT_2F>::iterator itor = sortedNodes.begin(); itor != sortedNodes.end(); itor++, c++)
+	{
+		m_points[c].x = (*itor).x;
+		m_points[c].y = (*itor).y;
+	}
 }
 
 void LineChart::CreateDeviceDependentResources(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context)
 {
-
+	DX::ThrowIfFailed( context->CreateSolidColorBrush(m_color, D2D1::BrushProperties(1.0f), &m_solidBrush) );
 }
 
 void LineChart::Render(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context)
 {
-
+	for( int i=0; i<m_nodeCount; ++i)
+	{
+		context->DrawLine(D2D1::Point2F(m_points[i].x, 0.0f), D2D1::Point2F(m_points[i].x, m_points[i].y), m_solidBrush);
+	}
 }
 
 

@@ -8,6 +8,7 @@
 #include "ScatterPlot.h"
 #include "Axes.h"
 #include "TextMessageWin.h"
+#include "LineChart.h"
 
 // 這個類別會轉譯有彩色背景的簡單文字。
 ref class GraphRenderer sealed : public DirectXBase
@@ -36,7 +37,7 @@ private:
 	std::shared_ptr<TextMessageWin> m_msgWin;
 	std::shared_ptr<Axes> m_pAxes;
 
-	std::shared_ptr<GraphVariable> m_graphVar;
+	std::shared_ptr<GraphVariable> m_graphVar, m_lineChart;
 
 	// 顯示FPS
 	Microsoft::WRL::ComPtr<IDWriteTextFormat> m_textFormat;

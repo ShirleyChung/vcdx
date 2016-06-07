@@ -28,7 +28,7 @@ GraphRenderer::GraphRenderer()
 //	D2D1_COLOR_F colors[] = { D2D1::ColorF(ColorF::PaleGoldenrod), D2D1::ColorF(ColorF::PaleTurquoise), D2D1::ColorF(0.7f, 0.7f, 1.0f)  };
 //	float stops[] = { 0.0f, 0.5f, 1.0f };
 
-	const int count = 4, nodeCount = 500;
+	const int count = 4, nodeCount = 30;
 
 	D2D1_COLOR_F *colors = new D2D1_COLOR_F[count];
 	float *stops = new float[count];
@@ -56,6 +56,8 @@ GraphRenderer::GraphRenderer()
 	}
 
 	m_graphVar = std::make_shared<ScatterPlot>(x, y, 2.0f, D2D1::ColorF::BlueViolet, NodeShape::Circle, nodeCount);
+
+	m_lineChart = std::make_shared<LineChart>(x, y, nodeCount, D2D1::ColorF::Blue, 2.0f);
 
 	delete[] x;
 	delete[] y;
@@ -92,6 +94,7 @@ void GraphRenderer::CreateDeviceResources()
 
 	m_bmpBackground->CreateDeviceDependentResources( m_d2dContext, m_wicFactory.Get(), L"space.jpg" );
 	m_graphVar->CreateDeviceDependentResources(m_d2dContext);
+	m_lineChart->CreateDeviceDependentResources(m_d2dContext);
 	m_pAxes->CreateDeviceDependentResources(m_d2dContext);
 
 	m_msgWin->CreateDeviceDependentResources(m_d2dContext, m_wicFactory.Get(), L"");
@@ -157,6 +160,8 @@ void GraphRenderer::Render()
 
 	/* 圖表 */
 	m_graphVar->Render(m_d2dContext);
+
+	m_lineChart->Render(m_d2dContext);
 
 	HRESULT hr = m_d2dContext->EndDraw();
 	if (hr != D2DERR_RECREATE_TARGET)
