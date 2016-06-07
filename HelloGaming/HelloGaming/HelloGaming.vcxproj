@@ -132,6 +132,9 @@
       <DependentUpon>DirectXPage.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="ScatterPlot.h" />
+    <ClInclude Include="SettingUp.xaml.h">
+      <DependentUpon>SettingUp.xaml</DependentUpon>
+    </ClInclude>
     <ClInclude Include="SolidBackground.h" />
     <ClInclude Include="TextMessageWin.h" />
   </ItemGroup>
@@ -143,6 +146,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DirectXPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SettingUp.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
@@ -177,6 +183,9 @@
     <ClCompile Include="LineChart.cpp" />
     <ClCompile Include="Pane.cpp" />
     <ClCompile Include="ScatterPlot.cpp" />
+    <ClCompile Include="SettingUp.xaml.cpp">
+      <DependentUpon>SettingUp.xaml</DependentUpon>
+    </ClCompile>
     <ClCompile Include="SimpleTextRenderer.cpp" />
     <ClCompile Include="DirectXBase.cpp" />
     <ClCompile Include="App.xaml.cpp">

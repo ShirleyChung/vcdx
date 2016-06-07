@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="DirectXPage.xaml" />
+    <Page Include="SettingUp.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\OneDrive\圖片\相機相簿\Screenshot0.jpg" />
