@@ -6,6 +6,7 @@
 #pragma once
 
 #include "SettingUp.g.h"
+#include "LineChart.h"
 
 namespace HelloGaming
 {
@@ -16,9 +17,11 @@ namespace HelloGaming
 	public ref class SettingUp sealed
 	{
 		Windows::UI::Xaml::UIElement^ m_parent;
+		std::shared_ptr<LineChart> m_lineChart;
 
 	public:
-		SettingUp(Windows::UI::Xaml::UIElement^ parent);
+	internal:
+		SettingUp(Windows::UI::Xaml::UIElement^ parent, std::shared_ptr<LineChart> lineChart);
 
 	protected:
 		virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;

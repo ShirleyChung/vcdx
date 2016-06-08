@@ -90,6 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\OneDrive\圖片\相機相簿\Screenshot0.jpg" />
-    <Image Include="..\..\..\..\..\Desktop\space.jpg" />
+    <Image Include="..\..\..\..\..\Pictures\space.jpg">
+      <Filter>資產</Filter>
+    </Image>
+    <Image Include="Assets\space.jpg" />
   </ItemGroup>
 </Project>

@@ -8,7 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-    	<Button Content="Back" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="121" Click="btnClick"/>
+        <Button Content="Back" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="121" Click="btnClick"/>
+        <TextBlock TextAlignment="Center" HorizontalAlignment="Left" Margin="140,84,0,0" TextWrapping="Wrap" Text="line Thkicknes:" VerticalAlignment="Top" Height="42" Width="77" FontFamily="Global User Interface"/>
+        <Slider Name="stdLineThickness" Minimum="1" Maximum="12" HorizontalAlignment="Left" Margin="222,84,0,0" VerticalAlignment="Top" Width="212" Height="42"/>
 
     </Grid>
 </Page>

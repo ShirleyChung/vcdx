@@ -159,10 +159,11 @@
     <None Include="HelloGaming_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\..\Desktop\space.jpg" />
     <Image Include="..\..\..\..\..\OneDrive\圖片\相機相簿\Screenshot0.jpg" />
+    <Image Include="..\..\..\..\..\Pictures\space.jpg" />
     <Image Include="Assets\Logo.png" />
     <Image Include="Assets\SmallLogo.png" />
+    <Image Include="Assets\space.jpg" />
     <Image Include="Assets\StoreLogo.png" />
     <Image Include="Assets\SplashScreen.png" />
   </ItemGroup>

@@ -4,7 +4,7 @@
 
 bool compare_points(D2D1_POINT_2F a, D2D1_POINT_2F b)
 {
-	return a.x < b.x;
+	return a.y < b.y;
 }
 
 LineChart::LineChart(float* x, float* y, int count, D2D1::ColorF cr, float thickness)
@@ -40,7 +40,9 @@ void LineChart::Render(Microsoft::WRL::ComPtr<ID2D1DeviceContext> context)
 {
 	for( int i=0; i<m_nodeCount; ++i)
 	{
-		context->DrawLine(D2D1::Point2F(m_points[i].x, 0.0f), D2D1::Point2F(m_points[i].x, m_points[i].y), m_solidBrush);
+		context->FillRectangle(
+			D2D1::RectF(m_points[i].x - m_lineThickness, m_points[i].y, m_points[i].x + m_lineThickness, 0)
+			, m_solidBrush);	
 	}
 }
 

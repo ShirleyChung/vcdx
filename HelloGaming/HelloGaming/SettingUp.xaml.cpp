@@ -21,10 +21,12 @@ using namespace Windows::UI::Xaml::Navigation;
 
 // 空白頁項目範本已記錄在 http://go.microsoft.com/fwlink/?LinkId=234238
 
-SettingUp::SettingUp(Windows::UI::Xaml::UIElement^ p)
+SettingUp::SettingUp(Windows::UI::Xaml::UIElement^ p, std::shared_ptr<LineChart> lc)
 	:m_parent(p)
+	,m_lineChart(lc)
 {
 	InitializeComponent();
+	stdLineThickness->Value = (int)m_lineChart->GetLineThickness();
 }
 
 /// <summary>
@@ -40,6 +42,7 @@ void SettingUp::OnNavigatedTo(NavigationEventArgs^ e)
 
 void HelloGaming::SettingUp::btnClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
+	m_lineChart->SetLineThickness((float)stdLineThickness->Value);
 	Window::Current->Content = m_parent;
 	Window::Current->Activate();
 }

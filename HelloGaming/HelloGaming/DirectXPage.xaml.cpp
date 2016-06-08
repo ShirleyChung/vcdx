@@ -128,6 +128,6 @@ void HelloGaming::DirectXPage::OnPointerWheelChanged(Platform::Object^ sender, W
 
 void HelloGaming::DirectXPage::btnSetting(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
-	Window::Current->Content = ref new SettingUp(this);
+	Window::Current->Content = ref new SettingUp(this, m_renderer->GetLineChart());
 	Window::Current->Activate();
 }

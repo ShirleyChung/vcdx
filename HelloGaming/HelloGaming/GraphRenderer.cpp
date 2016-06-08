@@ -57,7 +57,7 @@ GraphRenderer::GraphRenderer()
 
 	m_graphVar = std::make_shared<ScatterPlot>(x, y, 2.0f, D2D1::ColorF::BlueViolet, NodeShape::Circle, nodeCount);
 
-	m_lineChart = std::make_shared<LineChart>(x, y, nodeCount, D2D1::ColorF::Blue, 2.0f);
+	m_lineChart = std::make_shared<LineChart>(x, y, nodeCount, D2D1::ColorF::Blue, 5.0f);
 
 	delete[] x;
 	delete[] y;
@@ -75,6 +75,7 @@ GraphRenderer::~GraphRenderer()
 //	delete m_bmpBackground;
 //	delete m_graphVar;
 //	delete m_pAxes;
+//	delete m_lineChart;
 }
 
 void GraphRenderer::CreateDeviceIndependentResources()

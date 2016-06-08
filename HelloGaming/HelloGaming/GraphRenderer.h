@@ -37,11 +37,15 @@ private:
 	std::shared_ptr<TextMessageWin> m_msgWin;
 	std::shared_ptr<Axes> m_pAxes;
 
-	std::shared_ptr<GraphVariable> m_graphVar, m_lineChart;
+	std::shared_ptr<GraphVariable> m_graphVar;
+	std::shared_ptr<LineChart> m_lineChart;
 
 	// 顯示FPS
 	Microsoft::WRL::ComPtr<IDWriteTextFormat> m_textFormat;
 	Microsoft::WRL::ComPtr<ID2D1SolidColorBrush> m_textBrush;
 
 	float m_timeDelta, m_timeTotal;
+
+internal:
+	std::shared_ptr<LineChart> GetLineChart(){ return m_lineChart; }
 };
