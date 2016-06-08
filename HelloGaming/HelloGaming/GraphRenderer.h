@@ -40,6 +40,10 @@ private:
 	std::shared_ptr<GraphVariable> m_graphVar;
 	std::shared_ptr<LineChart> m_lineChart;
 
+	Microsoft::WRL::ComPtr<ID2D1RectangleGeometry> m_rectangle;
+	Microsoft::WRL::ComPtr<ID2D1EllipseGeometry> m_ellipse;
+	Microsoft::WRL::ComPtr<ID2D1RoundedRectangleGeometry> m_roundRect;
+
 	// 顯示FPS
 	Microsoft::WRL::ComPtr<IDWriteTextFormat> m_textFormat;
 	Microsoft::WRL::ComPtr<ID2D1SolidColorBrush> m_textBrush;

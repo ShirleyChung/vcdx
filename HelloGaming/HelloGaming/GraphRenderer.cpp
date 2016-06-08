@@ -87,6 +87,10 @@ void GraphRenderer::CreateDeviceIndependentResources()
 		);
 
 	m_msgWin->CreateDeviceIndependentResources(m_dwriteFactory);
+
+	DX::ThrowIfFailed( m_d2dFactory->CreateRectangleGeometry( D2D1::RectF(10,10,200,200), &m_rectangle ) );
+	DX::ThrowIfFailed( m_d2dFactory->CreateEllipseGeometry( D2D1::Ellipse( D2D1::Point2F(200,300), 200,200), &m_ellipse ) );
+	DX::ThrowIfFailed( m_d2dFactory->CreateRoundedRectangleGeometry( D2D1::RoundedRect(D2D1::RectF(200,210,200,200), 25, 25), &m_roundRect ) );
 }
 
 void GraphRenderer::CreateDeviceResources()
@@ -153,6 +157,7 @@ void GraphRenderer::Render()
 	/* messages */
 	m_d2dContext->SetTransform(mouse_pan* m_orientationTransform2D);
 	m_msgWin->Render(m_d2dContext);
+	m_d2dContext->DrawGeometry(m_rectangle.Get(), m_textBrush.Get());
 
 	m_d2dContext->SetTransform(scale * translation* m_orientationTransform2D);
 

@@ -4,6 +4,11 @@
 
 bool compare_points(D2D1_POINT_2F a, D2D1_POINT_2F b)
 {
+	return a.x < b.x;
+}
+
+bool compare_y(D2D1_POINT_2F a, D2D1_POINT_2F b)
+{
 	return a.y < b.y;
 }
 
@@ -28,6 +33,12 @@ void LineChart::sortData()
 	{
 		m_points[c].x = (*itor).x;
 		m_points[c].y = (*itor).y;
+	}
+	std::stable_sort(sortedNodes.begin(), sortedNodes.end(), compare_y);
+	std::vector<D2D1_POINT_2F>::iterator itor = sortedNodes.begin();
+	for(int i=0; i<m_nodeCount; ++i, ++itor)
+	{
+		m_points[i].y = (*itor).y;
 	}
 }
 
